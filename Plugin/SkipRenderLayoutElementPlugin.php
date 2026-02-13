@@ -35,13 +35,13 @@ class SkipRenderLayoutElementPlugin
      * @param Layout $layout
      * @param callable $proceed
      * @param string $name
-     * @return string|null
+     * @return string|bool|null
      */
     public function aroundRenderNonCachedElement(
         Layout $layout,
         callable $proceed,
         $name
-    ): ?string {
+    ) {
         if (!$this->shouldSkipRendering($layout)) {
             return $proceed($name);
         }
